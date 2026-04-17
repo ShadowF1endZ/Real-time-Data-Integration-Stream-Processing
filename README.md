@@ -14,3 +14,5 @@ Highlights:
 - Benchmarked across traffic levels from 100 to 50,000 transactions/sec
 
 Stack: Python · Apache Kafka · Apache Spark · PostgreSQL · Grafana · Docker
+
+[![Architecture](./fraud-architecture.png)](./Real-time Fraud Detection Pipeline Architecture.pdf)
