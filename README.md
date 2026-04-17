@@ -15,4 +15,4 @@ Highlights:
 
 Stack: Python · Apache Kafka · Apache Spark · PostgreSQL · Grafana · Docker
 
-[![Architecture](./fraud-architecture.png)](./Real-time Fraud Detection Pipeline Architecture.pdf)
+[![Architecture](./Real-time%20Fraud%20Detection%20Pipeline%20Architecture.png)](./Real-time%20Fraud%20Detection%20Pipeline%20Architecture.pdf)
