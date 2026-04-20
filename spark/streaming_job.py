@@ -17,6 +17,10 @@ from pyspark.sql.functions import pandas_udf
 import pandas as pd
 import numpy as np
 
+import os 
+from dotenv import load_dotenv
+load_dotenv
+
 
 spark = (
     SparkSession.builder
@@ -176,10 +180,10 @@ def write_to_postgres(batch_df, batch_id):
         )
         .write
         .format("jdbc")
-        .option("url", "jdbc:postgresql://postgres:5432/fraud_db")
+        .option("url", f"jdbc:postgresql://postgres:5432/{os.getenv('POSTGRES_DB')}")
         .option("dbtable", "fraud_events")
-        .option("user", "fraud")
-        .option("password", "fraud123")
+        .option("user", os.getenv("POSTGRES_USER"))
+        .option("password", os.getenv("POSTGRES_PASSWORD"))
         .option("driver", "org.postgresql.Driver")
         .mode("append")
         .save()
