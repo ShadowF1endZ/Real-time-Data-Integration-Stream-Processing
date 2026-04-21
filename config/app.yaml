@@ -1,0 +1,31 @@
+# config/app.yaml
+
+kafka:
+  bootstrap_servers: "kafka:9092"
+  topic_transactions: "transactions"
+  topic_alerts: "alerts"
+  isolation_level: "read_committed"
+
+spark:
+  app_name: "FraudDetectionStreaming"
+  checkpoint_dir: "/tmp/fraud_checkpoint"
+  shuffle_partitions: 8
+  watermark_delay: "5 seconds"
+
+windows:
+  tumbling_duration: "60 seconds"
+  sliding_duration: "30 seconds"
+  sliding_step: "10 seconds"
+
+model:
+  path: "/app/model/fraud_model.pkl"
+  fraud_threshold: 0.5
+
+postgres:
+  url: "jdbc:postgresql://postgres:5432/fraud_db"
+  table: "fraud_events"
+  user: "${POSTGRES_USER}"
+  password: "${POSTGRES_PASSWORD}"
+
+producer:
+  default_rate: 500
